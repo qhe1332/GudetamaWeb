@@ -1,0 +1,86 @@
+.background
+{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: -1;
+}
+body
+{
+	font-family: Comic Sans MS;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+.heading
+{
+	font-family: Comic Sans MS;
+	text-align: center;
+	background-color: #EEEBAB;
+	color: brown;
+	border: solid;
+}
+h1
+{
+	position: relative;
+	font-size: 70px;
+	width: 1000px;
+}
+a
+{
+	position: relative;
+	font-size: 20px;
+	width: 100px;
+	float: left;
+	background-color: yellow;
+	border: solid;
+}
+.bbox
+{
+	height: 50px;
+	width: 600px;
+	float: left;
+}
+.pbox
+{
+	position: relative;
+	background-color: rgba(238, 235, 171, 0.8);
+	color: brown;
+	border: solid;
+	padding: 10px;
+}
+.title
+{
+	font-size: 50px;
+}
+li > img
+{
+	height: 250px;
+	padding: 50px;
+}
+
+iframe
+{
+	width: 800px;
+	height: 500px;
+}
+
+p
+{
+	font-size: 20px;
+}
+
+.notes
+{
+	font-size: 12px;
+}
+.BoxBox    //
+{
+	top: 50px;
+	border: solid;
+
+}
+ul > img
+{
+	width: 700px;
+}

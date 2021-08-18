@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<!--Qian Yi He-->
+<html>
+	<head>
+		<title>Gudetama's Home</title>
+		<link rel = "stylesheet" href = "Page Design.css" />
+		<style>
+		</style>
+		<script>
+			function initialize()
+			{
+				ComboList = "Bacon.jpg,Sausage.jpg,Toast.jpg,Egg Shell.jpg,Sausage1.jpg,Egg Shell1.jpg,Cosplay3.jpg,Toast1.jpg,Egg Shell2.jpg,Cosplay.jpg,Cosplay1.jpg,Cosplay2.jpg,Bacon1.jpg,Cosplay4.jpg,Cosplay5.jpg,SausageBacon.jpg,Egg Shell3.jpg,Cosplay6.jpg,Chopstick.jpg,Chopstick2.jpg,Egg Shell4.jpg,Egg Shell5.jpg,Chopstick1.jpg,Bacon2.jpg,CosplayEgg Shell.jpg,CosplayEgg Shell1.jpg,CosplayEgg Shell2.jpg,Egg Shell6.jpg,Egg Shell7.jpg";
+				imgGal = [];
+				text = "";
+				textOut = document.getElementById("te");
+				imgOut = document.getElementById("iam");
+				imgOut2 = document.getElementById("allImg");
+				
+				Combo2 = ComboList.split(",");
+				for(var i = 0; i < Combo2.length; i++)
+				{
+					disImg = document.createElement("img");
+					disImg.src = "image/" + Combo2[i];             
+					imgOut2.appendChild(disImg);
+				}
+			}
+			function searchPhoto(item)
+			{
+				imgGal = [];
+				text = item;
+				for(var i = 0; i < Combo2.length; i++)
+				{
+					if(Combo2[i].indexOf(item) != -1)
+					{
+						imgGal.push(Combo2[i]);
+					}
+				}
+				display();
+			}
+			function display()
+			{	
+				while(imgOut2.hasChildNodes() == true)          //to remove the previous pictures from li > li
+				{
+					imgOut2.removeChild(imgOut2.firstChild);
+				}
+				while(imgOut.hasChildNodes() == true)          //to remove the previous pictures li
+				{
+					imgOut.removeChild(imgOut.firstChild);
+				}
+				
+				for(var i = 0; i < imgGal.length; i++)            // to insert new photos
+				{
+					disImg = document.createElement("img");
+					disImg.src = "image/" + imgGal[i];             
+					imgOut.appendChild(disImg);
+				}
+				
+				textOut.innerHTML = text;
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img class = "background" src = "gudetama_1080.png"/>
+		<h1 class = "heading">Gudetama's Home</h1>
+			<a class = "heading" href = "index.html">Home</a>
+			<a class = "heading" href = "index2.html">Images</a>
+			<a class = "heading" href = "index3.html">Products</a>
+			<a class = "heading" href = "index4.html">Videos</a>
+			<a class = "heading" href = "index5.html">More Info</a><br/>
+			
+		<ul class = "pbox">
+			<span class = "title">Images</span><br/>
+			<p>This is a photo collection of Gudetama. Click on any of the buttons below to view how gudetama goes with each theme.</p>
+			<button onclick = "searchPhoto('Bacon');">Bacon</button>
+			<button onclick = "searchPhoto('Chopstick');">Chopstick</button>
+			<button onclick = "searchPhoto('Toast');">Toast</button>
+			<button onclick = "searchPhoto('Sausage');">Sausage</button>
+			<button onclick = "searchPhoto('Egg Shell');">Egg Shell</button>
+			<button onclick = "searchPhoto('Cosplay');">Cosplay</button> <br/>
+			Gudetama + <span id = "te">(pick a theme)</span> = <br/>
+			
+			<li id = "iam" >
+				<li id = "allImg"></li>
+			</li>
+		</ul>
+	</body>
+</html>

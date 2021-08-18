@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<!--Qian Yi He-->
+<html>
+	<head>
+		<title>Gudetama's Home</title>
+		<link rel = "stylesheet" href = "Page Design.css" />
+		<style>
+		</style>
+		<script>
+			function initialize()
+			{
+				INFO = "mug.jpg,Gudetama Egg Mug,$18.99,Amazon.com;mug1.jpg,White Gudetama Mug Cup,$12.52,beautyboxkorea.com;mug2.jpg,Yellow Gudetama Mug Cup,$12.52,beautyboxkorea.com;mug3.jpg,Gudetama Lazy Egg Stacking Plastic Mug,$8.78,tufucute.com;mug4.jpg,Gudetama Travel Mug,$14.90,blippo.com;plushie.jpg,Cute Lying Gudetama Stuffed Pillow Cushion 15in,$13.80,Ebay.com;plushie1.jpg,FuRyu Gudetama Sausage Large 35cm,$35.99,Ebay.com;key.jpg,Gudetama Egg Mascot with Keychain stuffed,$29.50,Amazon.com;key1.jpg,Takara Tomy Gudetama Food Mascot Set of 5,$48.57,Amazon.com;key2.jpg,Gudetama Swing Mascot Keychain~ Sleeping Egg,$10.95,Amazon.com;plushiekey.jpg,Gudetama Laying Talking Plush 4in x 3in,$13.52,hottopic.com;key3.jpg,Gudetama 3D Bacon Blanket Key Chain 3in,$3.40,hottopic.com;accessories.jpg,Unisex Gudetama Baseball Cap 4.72in Diameter,$13.99,Amazon.com;accessories1.jpg,Gudetama Dance Seriously Can't Girls Sweater,$35.92 - $37.52,Hottopic.com;mug5.jpg,Enesco Gudetama Pattern Stoneware Mug,$15.99,Amazon.com;stationary.jpg,Sanrio Gudetama Memo Pad Notes Letter + Spiral Notebook 2Pcs Set Yellow,$11.69,kittyjunkies.biz;stationary1.jpg,Gudetama Ballpoint Pen: Sunnyside Up,$12.00,Sanrio.com;stationary2.jpg,Gudetama Ballpoint Pen: Egg Sushi,$12.00,Sanrio.com;phone.jpg,Gudetama iPhone 7 Case: Eggs,$23.80,Sanrio.com;accessories2.jpg,Gudetama Zip Long Wallet: Eggs Many Ways,$38.00,Sanrio.com;phone1.jpg,Luxury Gudetama Case For Coque Samsung Galaxy Note 4 Case Soft TPU Silicone Egg Pattern Funda For Capinha Samsung Note 4 Cases,$2.88 each,Aliexpress.com;phone2.jpg,cute lovely gudetama lazy egg hard clear Cases cover for Apple iPhone 7 6 6s Plus SE 4s 5 5s 5c plastic phone case,$1.99 each,Aliexpress.com;phone3.jpg,Gudetama Lazy egg Hard case cover 3D Food rice sample Apple iPhone 5/5s/6/plus,$4.89,Ebay.com;phone4.jpg,Lovely Gudetama Egg Case For iphone 7 Case Fashion Clear Soft TPU Phone Cases Funny Cartoon Back Cover For iphone 6 6S 7 PLus,$2.03-$2.14 each,Aliexpress.com;stationary3.jpg,Sanrio Gudetama Lazy Egg Stationery Mechanical Pencil,$2.99 each,hellodiscountstore.com;accessories3.jpg,Gudetama Hoodie Plus Size Fleece Pullover Sweatshirts for Spring Wear,$49.99,sweatshirtxy.com";
+				product = [];
+				product2 = [];
+				productOut = document.getElementById("pro");
+			}
+			function searchProduct(item)
+			{
+				product = [];
+				product2 = [];
+				var sorted = INFO.split(";");
+				for(var i = 0; i < sorted.length; i++)
+				{
+					var sortedP = sorted[i].split(","); 
+					if(sortedP[i,0].indexOf(item) != -1)
+					{   
+						product.push(sorted[i]);
+					}
+				}
+				/*for(var i = 0; i < product.length; i++)
+				{
+					product2.push(product[i].split(","));
+				}*/
+				display();
+			}
+			function display()
+			{
+				while(productOut.hasChildNodes() == true)          //to remove the previous pictures
+				{
+					productOut.removeChild(productOut.firstChild);
+				}
+				
+				for(var i = 0; i < product.length; i++)            // to insert new photos
+				{
+					var itemInfo = product[i].split(",");
+					var productImg = itemInfo[0];
+					disBox = document.createElement("li");
+					disImg = document.createElement("img");
+					disImg.src = "Products/" + productImg;   
+					disBox.appendChild(disImg); 
+					
+					for(var a = 1; a < itemInfo.length; a++)
+					{
+						disInfo = document.createElement("div");
+						disInfo.innerHTML = itemInfo[a];
+						disBox.appendChild(disInfo);
+					}
+					productOut.appendChild(disBox);
+				}
+			}
+		</script>
+	</head>
+	<body onload = "initialize();">
+		<img class = "background" src =  "gudetama_1080.png"/>
+		<h1 class = "heading">Gudetama's Home</h1>
+			<a class = "heading" href = "index.html">Home</a>
+			<a class = "heading" href = "index2.html">Images</a>
+			<a class = "heading" href = "index3.html">Products</a>
+			<a class = "heading" href = "index4.html">Videos</a>
+			<a class = "heading" href = "index5.html">More Info</a><br/>
+		<ul class = "pbox">
+			<span class = "title">Products</span><br/>
+			<p>Other than just pictures, Gudetama also have his/her theme products. Click on each button to search for different products.</p><br/>
+			<button onclick = "searchProduct('mug');">Cup</button>
+			<button onclick = "searchProduct('key');">Key Holder</button>
+			<button onclick = "searchProduct('plushie');">Plushie</button>
+			<button onclick = "searchProduct('phone');">Phonecase</button>
+			<button onclick = "searchProduct('stationary');">Stationary</button>
+			<button onclick = "searchProduct('accessories');">Accessories</button>
+			<p class = "notes">NOTE: You cannot buy products directly from this site. These are only references based on products from other websites</p>
+			
+			<ul class = "itemBox" id = "pro"></ul>
+		</ul>
+	</body>
+</html>
