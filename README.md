@@ -5,6 +5,9 @@ This website is about a sanrio character created in 2013 called Gudetama, the la
 It introduces the character and allow users to know more about it. 
 It is like a profolio for Gudetama.
 
+## Live Site
+https://qhe1332.github.io/GudetamaWeb/
+
 ### Page Number : 5 pages
    - **Visual Theme** : yellow and brown
       - **Page 1:** Home page
